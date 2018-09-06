@@ -4,7 +4,7 @@ $("#confirm-login").click(function(){
 
     console.log("click")
 
-    window.fetch("192.168.43.248/login", {
+    window.fetch("http://192.168.43.248/login", {
         method:'Post',
         headers: {
             'Content-type':'application/json',
@@ -13,6 +13,13 @@ $("#confirm-login").click(function(){
             user:login,
             password:passwordLogin
     })
+    }).then(res => {
+        window.fetch('http://192.168.43.248/gallery', {
+            method: 'get',
+            headers: {
+                'Content-type':'application/json',
+            },
+        })
     }).then(res => {
         console.log(res)
     })
@@ -26,7 +33,7 @@ $("#confirm-register").click(function(){
 
 
 
-    window.fetch("192.168.43.248/register", {
+    window.fetch("http://192.168.43.248/register", {
         method:'Post',
         headers: {
             'Content-type':'application/json',
@@ -40,3 +47,4 @@ $("#confirm-register").click(function(){
     })
 
 });
+
